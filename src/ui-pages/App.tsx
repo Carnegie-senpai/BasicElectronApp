@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import logo from "./logo512.png"
 import { Button } from "@mui/material"
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={process.env.PUBLIC_URL+"/img/logo.svg"} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
