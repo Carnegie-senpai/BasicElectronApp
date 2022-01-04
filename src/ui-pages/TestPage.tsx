@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material"
 import React from "react"
 import { Page } from "./Page"
-function TestPageComponent() {
+function TestPageComponent(props: any) {
     return (
         <React.Fragment>
             <Typography>You are on a new page</Typography>

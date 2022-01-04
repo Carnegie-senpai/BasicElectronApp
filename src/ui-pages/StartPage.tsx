@@ -1,12 +1,12 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom"
 import { Page } from "./Page"
-function StartPageComponent() {
+import { Link } from "../ui-components/Link"
+function StartPageComponent(props: any) {
     return (
         <React.Fragment>
             <Typography>Test</Typography>
-            <Link to="/test">CLICK ME</Link>
+            <Link to={"/test"} props={{}}>Hello</Link>
         </React.Fragment>
     )
 }

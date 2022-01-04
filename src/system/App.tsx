@@ -1,26 +1,14 @@
 import React from 'react';
-import './App.css';
-import { Button } from "@mui/material"
-import { StartPage } from '../ui-pages';
 import { getPages } from '../ui-pages/Page';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-
+import { PageContext } from "./PageContext"
 function App() {
   const pages = getPages()
+  
   return (
-    <BrowserRouter>
-      <Routes>
-        {
-          Object.keys(pages).map((key) => {
-            return (
-              <React.Fragment>
-                <Route path={key} element={pages[key]()}></Route>
-              </React.Fragment>
-            )
-          })
-        }
-      </Routes>
-    </BrowserRouter>
+    <React.Fragment>
+      <PageContext.Provider value={{path: "/",props:{},setContext:()=>{}}}>
+      </PageContext.Provider>
+    </React.Fragment>
   );
 }
 
