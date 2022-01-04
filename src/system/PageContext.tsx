@@ -1,7 +1,14 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export const PageContext = createContext({
+
+export interface PageContext {
+	path: string,
+	contextProps: any,
+	setContext: (props: {path?:string,contextProps?:any}) => void
+}
+
+export const pageContext = createContext<PageContext>({
 	path: "/",
-	props: {},
-	setContext: (context: {path:string,props:any}) => {}
+	contextProps: {},
+	setContext: (props: { props: string, contextProps: any }) => { }
 })

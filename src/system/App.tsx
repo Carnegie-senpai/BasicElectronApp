@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { getPages } from '../ui-pages/Page';
-import { PageContext } from "./PageContext"
+import { pageContext, PageContext } from "./PageContext"
+import { usePageContext } from './PageContextUpdater';
 function App() {
-  const pages = getPages()
-  
+  const context = usePageContext()
   return (
     <React.Fragment>
-      <PageContext.Provider value={{path: "/",props:{},setContext:()=>{}}}>
-      </PageContext.Provider>
+      <pageContext.Provider value={context}>
+        <PageWrapper/>
+      </pageContext.Provider>
     </React.Fragment>
   );
+}
+
+function PageWrapper() {
+  const pages = getPages()
+  const {path, contextProps} = useContext(pageContext)
+  return (
+    <React.Fragment>
+      {pages[path](contextProps)}
+    </React.Fragment>
+  )
 }
 
 export default App;
