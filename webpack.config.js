@@ -8,7 +8,17 @@ module.exports = [
 		output: {
 			path: __dirname +"/cache",
 			filename: 'main.js'
-		}
+		},
+		module: {
+			rules: [
+			  {
+				test: /\.m?js$/,
+				resolve: {
+				  fullySpecified: false, // disable the behaviour
+				},
+			  },
+			],
+		  }
 	},
 	{
 		mode: "development",
@@ -23,6 +33,16 @@ module.exports = [
 			new HtmlWebpackPlugin({
 				template: './assets/index.html'
 			})
-		]
+		],
+		module: {
+			rules: [
+			  {
+				test: /\.m?js$/,
+				resolve: {
+				  fullySpecified: false, // disable the behaviour
+				},
+			  },
+			],
+		  }
 	}
 ]
