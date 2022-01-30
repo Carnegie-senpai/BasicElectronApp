@@ -5,7 +5,7 @@
   "main": "cache/main.js",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "start": "npm run build && electron ./cache/main.js"
+    "start": "electron ./cache/main.js"
   },
   "dependencies": {
     "@mui/material": "5.2.4",
