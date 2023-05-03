@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import * as pages from '../ui-pages/index';
-import { pageContext, PageContext } from "./PageContext";
-import { usePageContext } from './PageContextUpdater';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
+
 function App() {
-  const context = usePageContext();
   return (
     <React.Fragment>
       <MemoryRouter>
@@ -20,7 +18,7 @@ function PageCollector() {
     <Routes>
       {pagesArray.map((value) => {
         return (
-          <Route path={value.path} key={value.path} element={<value.component/>}>
+          <Route path={value.path} key={value.path} element={<value.component />}>
           </Route>
         );
       })}
