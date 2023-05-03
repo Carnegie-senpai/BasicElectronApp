@@ -1,26 +1,31 @@
 import React, { useContext } from 'react';
-import { getPages } from '../ui-pages/Page';
-import { pageContext, PageContext } from "./PageContext"
+import * as pages from '../ui-pages/index';
+import { pageContext, PageContext } from "./PageContext";
 import { usePageContext } from './PageContextUpdater';
+import { MemoryRouter, Route, Routes } from 'react-router-dom';
 function App() {
-  const context = usePageContext()
+  const context = usePageContext();
   return (
     <React.Fragment>
-      <pageContext.Provider value={context}>
-        <PageWrapper/>
-      </pageContext.Provider>
+      <MemoryRouter>
+        <PageCollector />
+      </MemoryRouter>
     </React.Fragment>
   );
 }
 
-function PageWrapper() {
-  const pages = getPages()
-  const {path, contextProps} = useContext(pageContext)
+function PageCollector() {
+  const pagesArray = Object.values(pages);
   return (
-    <React.Fragment>
-      {pages[path](contextProps)}
-    </React.Fragment>
-  )
+    <Routes>
+      {pagesArray.map((value) => {
+        return (
+          <Route path={value.path} key={value.path} element={<value.component/>}>
+          </Route>
+        );
+      })}
+    </Routes>
+  );
 }
 
 export default App;

@@ -11,4 +11,4 @@ function StartPageComponent(props: any) {
     )
 }
 
-export const StartPage: Page = { path: "/", component: StartPageComponent }
+export const StartPage: Page = { path: "", component: StartPageComponent }
