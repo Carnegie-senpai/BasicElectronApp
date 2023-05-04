@@ -18,8 +18,7 @@ function PageCollector() {
     <Routes>
       {pagesArray.map((value) => {
         return (
-          <Route path={value.path} key={value.path} element={<value.component />}>
-          </Route>
+          <Route path={value.path} key={value.path} element={<value.component />} />
         );
       })}
     </Routes>
