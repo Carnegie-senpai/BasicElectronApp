@@ -1,2 +1,5 @@
-export { StartPage } from "./StartPage"
-export { TestPage } from "./TestPage"
+const req = require.context('./', true, /.js$/);
+
+const modules = req.keys().map(req)
+
+module.exports = modules;
